@@ -12,11 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @ClassName: QiniuCloudStorageService
- * @Description: 七牛云存储
- * @author: <a href="edeis@163.com">edeis</a>
- * @version: V1.0.0
- * @date: 2017-8-1
+ * 七牛云服务
  */
 @Service
 public class QiniuCloudStorageService extends CloudStorageService {
