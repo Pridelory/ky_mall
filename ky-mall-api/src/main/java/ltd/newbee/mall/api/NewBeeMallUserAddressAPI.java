@@ -13,14 +13,14 @@ import io.swagger.annotations.ApiOperation;
 import ltd.newbee.mall.api.param.SaveMallUserAddressParam;
 import ltd.newbee.mall.api.param.UpdateMallUserAddressParam;
 import ltd.newbee.mall.api.vo.NewBeeMallUserAddressVO;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.config.annotation.TokenToMallUser;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.entity.MallUserAddress;
 import ltd.newbee.mall.service.NewBeeMallUserAddressService;
-import ltd.newbee.mall.util.BeanUtil;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.util.BeanUtil;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

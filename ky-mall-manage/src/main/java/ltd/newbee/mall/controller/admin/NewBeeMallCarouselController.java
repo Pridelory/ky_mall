@@ -1,11 +1,11 @@
 package ltd.newbee.mall.controller.admin;
 
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.Carousel;
 import ltd.newbee.mall.service.NewBeeMallCarouselService;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ import java.util.Objects;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  */
 @Controller
 @RequestMapping("/admin")

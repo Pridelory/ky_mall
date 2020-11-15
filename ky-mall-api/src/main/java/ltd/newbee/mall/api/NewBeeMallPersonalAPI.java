@@ -7,17 +7,20 @@
  * 版权所有，侵权必究！
  */
 package ltd.newbee.mall.api;
+import com.wangmeng.mall.util.BeanUtil;
+import com.wangmeng.mall.util.NumberUtil;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import io.swagger.annotations.*;
 import ltd.newbee.mall.api.param.MallUserLoginParam;
 import ltd.newbee.mall.api.param.MallUserRegisterParam;
 import ltd.newbee.mall.api.param.MallUserUpdateParam;
-import ltd.newbee.mall.common.Constants;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.config.annotation.TokenToMallUser;
 import ltd.newbee.mall.api.vo.NewBeeMallUserVO;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.service.NewBeeMallUserService;
-import ltd.newbee.mall.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;

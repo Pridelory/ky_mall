@@ -1,11 +1,11 @@
 package ltd.newbee.mall.service.impl;
 
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.dao.CarouselMapper;
 import ltd.newbee.mall.entity.Carousel;
 import ltd.newbee.mall.service.NewBeeMallCarouselService;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.PageResult;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

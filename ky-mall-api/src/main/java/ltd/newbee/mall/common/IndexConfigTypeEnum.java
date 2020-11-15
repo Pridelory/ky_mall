@@ -12,7 +12,7 @@ package ltd.newbee.mall.common;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  * @apiNote 首页配置项 1-搜索框热搜 2-搜索下拉框热搜 3-(首页)热销商品 4-(首页)新品上线 5-(首页)为你推荐
  */
 public enum IndexConfigTypeEnum {
@@ -33,8 +33,8 @@ public enum IndexConfigTypeEnum {
         this.name = name;
     }
 
-    public static IndexConfigTypeEnum getIndexConfigTypeEnumByType(int type) {
-        for (IndexConfigTypeEnum indexConfigTypeEnum : IndexConfigTypeEnum.values()) {
+    public static com.wangmeng.mall.common.IndexConfigTypeEnum getIndexConfigTypeEnumByType(int type) {
+        for (com.wangmeng.mall.common.IndexConfigTypeEnum indexConfigTypeEnum : com.wangmeng.mall.common.IndexConfigTypeEnum.values()) {
             if (indexConfigTypeEnum.getType() == type) {
                 return indexConfigTypeEnum;
             }

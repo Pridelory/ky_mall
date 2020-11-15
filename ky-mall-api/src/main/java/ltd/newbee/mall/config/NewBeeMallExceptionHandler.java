@@ -8,21 +8,20 @@
  */
 package ltd.newbee.mall.config;
 
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
-import ltd.newbee.mall.util.Result;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.util.Result;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
 /**
- * newbee-mall全局异常处理
+ * wangmeng-mall全局异常处理
  */
 @RestControllerAdvice
 public class NewBeeMallExceptionHandler {

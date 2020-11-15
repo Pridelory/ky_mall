@@ -8,18 +8,18 @@
  */
 package ltd.newbee.mall.service.impl;
 
+import com.wangmeng.mall.common.Constants;
 import ltd.newbee.mall.api.vo.NewBeeMallOrderDetailVO;
 import ltd.newbee.mall.api.vo.NewBeeMallOrderItemVO;
 import ltd.newbee.mall.api.vo.NewBeeMallOrderListVO;
 import ltd.newbee.mall.api.vo.NewBeeMallShoppingCartItemVO;
-import ltd.newbee.mall.common.*;
 import ltd.newbee.mall.dao.*;
 import ltd.newbee.mall.entity.*;
 import ltd.newbee.mall.service.NewBeeMallOrderService;
-import ltd.newbee.mall.util.BeanUtil;
-import ltd.newbee.mall.util.NumberUtil;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.PageResult;
+import com.wangmeng.mall.util.BeanUtil;
+import com.wangmeng.mall.util.NumberUtil;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,10 +49,10 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
     public NewBeeMallOrderDetailVO getOrderDetailByOrderNo(String orderNo, Long userId) {
         NewBeeMallOrder newBeeMallOrder = newBeeMallOrderMapper.selectByOrderNo(orderNo);
         if (newBeeMallOrder == null) {
-            NewBeeMallException.fail(ServiceResultEnum.DATA_NOT_EXIST.getResult());
+            com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.DATA_NOT_EXIST.getResult());
         }
         if (!userId.equals(newBeeMallOrder.getUserId())) {
-            NewBeeMallException.fail(ServiceResultEnum.REQUEST_FORBIDEN_ERROR.getResult());
+            com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.REQUEST_FORBIDEN_ERROR.getResult());
         }
         List<NewBeeMallOrderItem> orderItems = newBeeMallOrderItemMapper.selectByOrderId(newBeeMallOrder.getOrderId());
         //获取订单项数据
@@ -60,12 +60,12 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
             List<NewBeeMallOrderItemVO> newBeeMallOrderItemVOS = BeanUtil.copyList(orderItems, NewBeeMallOrderItemVO.class);
             NewBeeMallOrderDetailVO newBeeMallOrderDetailVO = new NewBeeMallOrderDetailVO();
             BeanUtil.copyProperties(newBeeMallOrder, newBeeMallOrderDetailVO);
-            newBeeMallOrderDetailVO.setOrderStatusString(NewBeeMallOrderStatusEnum.getNewBeeMallOrderStatusEnumByStatus(newBeeMallOrderDetailVO.getOrderStatus()).getName());
-            newBeeMallOrderDetailVO.setPayTypeString(PayTypeEnum.getPayTypeEnumByType(newBeeMallOrderDetailVO.getPayType()).getName());
+            newBeeMallOrderDetailVO.setOrderStatusString(com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.getNewBeeMallOrderStatusEnumByStatus(newBeeMallOrderDetailVO.getOrderStatus()).getName());
+            newBeeMallOrderDetailVO.setPayTypeString(com.wangmeng.mall.common.PayTypeEnum.getPayTypeEnumByType(newBeeMallOrderDetailVO.getPayType()).getName());
             newBeeMallOrderDetailVO.setNewBeeMallOrderItemVOS(newBeeMallOrderItemVOS);
             return newBeeMallOrderDetailVO;
         } else {
-            NewBeeMallException.fail(ServiceResultEnum.ORDER_ITEM_NULL_ERROR.getResult());
+            com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.ORDER_ITEM_NULL_ERROR.getResult());
             return null;
         }
     }
@@ -80,7 +80,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
             orderListVOS = BeanUtil.copyList(newBeeMallOrders, NewBeeMallOrderListVO.class);
             //设置订单状态中文显示值
             for (NewBeeMallOrderListVO newBeeMallOrderListVO : orderListVOS) {
-                newBeeMallOrderListVO.setOrderStatusString(NewBeeMallOrderStatusEnum.getNewBeeMallOrderStatusEnumByStatus(newBeeMallOrderListVO.getOrderStatus()).getName());
+                newBeeMallOrderListVO.setOrderStatusString(com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.getNewBeeMallOrderStatusEnumByStatus(newBeeMallOrderListVO.getOrderStatus()).getName());
             }
             List<Long> orderIds = newBeeMallOrders.stream().map(NewBeeMallOrder::getOrderId).collect(Collectors.toList());
             if (!CollectionUtils.isEmpty(orderIds)) {
@@ -107,13 +107,13 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
         if (newBeeMallOrder != null) {
             //todo 验证是否是当前userId下的订单，否则报错
             //todo 订单状态判断
-            if (newBeeMallOrderMapper.closeOrder(Collections.singletonList(newBeeMallOrder.getOrderId()), NewBeeMallOrderStatusEnum.ORDER_CLOSED_BY_MALLUSER.getOrderStatus()) > 0) {
-                return ServiceResultEnum.SUCCESS.getResult();
+            if (newBeeMallOrderMapper.closeOrder(Collections.singletonList(newBeeMallOrder.getOrderId()), com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.ORDER_CLOSED_BY_MALLUSER.getOrderStatus()) > 0) {
+                return com.wangmeng.mall.common.ServiceResultEnum.SUCCESS.getResult();
             } else {
-                return ServiceResultEnum.DB_ERROR.getResult();
+                return com.wangmeng.mall.common.ServiceResultEnum.DB_ERROR.getResult();
             }
         }
-        return ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
+        return com.wangmeng.mall.common.ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
     }
 
     @Override
@@ -122,36 +122,36 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
         if (newBeeMallOrder != null) {
             //todo 验证是否是当前userId下的订单，否则报错
             //todo 订单状态判断
-            newBeeMallOrder.setOrderStatus((byte) NewBeeMallOrderStatusEnum.ORDER_SUCCESS.getOrderStatus());
+            newBeeMallOrder.setOrderStatus((byte) com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.ORDER_SUCCESS.getOrderStatus());
             newBeeMallOrder.setUpdateTime(new Date());
             if (newBeeMallOrderMapper.updateByPrimaryKeySelective(newBeeMallOrder) > 0) {
-                return ServiceResultEnum.SUCCESS.getResult();
+                return com.wangmeng.mall.common.ServiceResultEnum.SUCCESS.getResult();
             } else {
-                return ServiceResultEnum.DB_ERROR.getResult();
+                return com.wangmeng.mall.common.ServiceResultEnum.DB_ERROR.getResult();
             }
         }
-        return ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
+        return com.wangmeng.mall.common.ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
     }
 
     @Override
     public String paySuccess(String orderNo, int payType) {
         NewBeeMallOrder newBeeMallOrder = newBeeMallOrderMapper.selectByOrderNo(orderNo);
         if (newBeeMallOrder != null) {
-            if (newBeeMallOrder.getOrderStatus().intValue() != NewBeeMallOrderStatusEnum.ORDER_PRE_PAY.getOrderStatus()) {
-                NewBeeMallException.fail("非待支付状态下的订单无法支付");
+            if (newBeeMallOrder.getOrderStatus().intValue() != com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.ORDER_PRE_PAY.getOrderStatus()) {
+                com.wangmeng.mall.common.NewBeeMallException.fail("非待支付状态下的订单无法支付");
             }
-            newBeeMallOrder.setOrderStatus((byte) NewBeeMallOrderStatusEnum.OREDER_PAID.getOrderStatus());
+            newBeeMallOrder.setOrderStatus((byte) com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.OREDER_PAID.getOrderStatus());
             newBeeMallOrder.setPayType((byte) payType);
-            newBeeMallOrder.setPayStatus((byte) PayStatusEnum.PAY_SUCCESS.getPayStatus());
+            newBeeMallOrder.setPayStatus((byte) com.wangmeng.mall.common.PayStatusEnum.PAY_SUCCESS.getPayStatus());
             newBeeMallOrder.setPayTime(new Date());
             newBeeMallOrder.setUpdateTime(new Date());
             if (newBeeMallOrderMapper.updateByPrimaryKeySelective(newBeeMallOrder) > 0) {
-                return ServiceResultEnum.SUCCESS.getResult();
+                return com.wangmeng.mall.common.ServiceResultEnum.SUCCESS.getResult();
             } else {
-                return ServiceResultEnum.DB_ERROR.getResult();
+                return com.wangmeng.mall.common.ServiceResultEnum.DB_ERROR.getResult();
             }
         }
-        return ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
+        return com.wangmeng.mall.common.ServiceResultEnum.ORDER_NOT_EXIST_ERROR.getResult();
     }
 
     @Override
@@ -166,18 +166,18 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(goodsListNotSelling)) {
             //goodsListNotSelling 对象非空则表示有下架商品
-            NewBeeMallException.fail(goodsListNotSelling.get(0).getGoodsName() + "已下架，无法生成订单");
+            com.wangmeng.mall.common.NewBeeMallException.fail(goodsListNotSelling.get(0).getGoodsName() + "已下架，无法生成订单");
         }
         Map<Long, NewBeeMallGoods> newBeeMallGoodsMap = newBeeMallGoods.stream().collect(Collectors.toMap(NewBeeMallGoods::getGoodsId, Function.identity(), (entity1, entity2) -> entity1));
         //判断商品库存
         for (NewBeeMallShoppingCartItemVO shoppingCartItemVO : myShoppingCartItems) {
             //查出的商品中不存在购物车中的这条关联商品数据，直接返回错误提醒
             if (!newBeeMallGoodsMap.containsKey(shoppingCartItemVO.getGoodsId())) {
-                NewBeeMallException.fail(ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult());
+                com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult());
             }
             //存在数量大于库存的情况，直接返回错误提醒
             if (shoppingCartItemVO.getGoodsCount() > newBeeMallGoodsMap.get(shoppingCartItemVO.getGoodsId()).getStockNum()) {
-                NewBeeMallException.fail(ServiceResultEnum.SHOPPING_ITEM_COUNT_ERROR.getResult());
+                com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.SHOPPING_ITEM_COUNT_ERROR.getResult());
             }
         }
         //删除购物项
@@ -186,7 +186,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                 List<StockNumDTO> stockNumDTOS = BeanUtil.copyList(myShoppingCartItems, StockNumDTO.class);
                 int updateStockNumResult = newBeeMallGoodsMapper.updateStockNum(stockNumDTOS);
                 if (updateStockNumResult < 1) {
-                    NewBeeMallException.fail(ServiceResultEnum.SHOPPING_ITEM_COUNT_ERROR.getResult());
+                    com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.SHOPPING_ITEM_COUNT_ERROR.getResult());
                 }
                 //生成订单号
                 String orderNo = NumberUtil.genOrderNo();
@@ -200,7 +200,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                     priceTotal += newBeeMallShoppingCartItemVO.getGoodsCount() * newBeeMallShoppingCartItemVO.getSellingPrice();
                 }
                 if (priceTotal < 1) {
-                    NewBeeMallException.fail(ServiceResultEnum.ORDER_PRICE_ERROR.getResult());
+                    com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.ORDER_PRICE_ERROR.getResult());
                 }
                 newBeeMallOrder.setTotalPrice(priceTotal);
                 String extraInfo = "";
@@ -226,13 +226,13 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                         //所有操作成功后，将订单号返回，以供Controller方法跳转到订单详情
                         return orderNo;
                     }
-                    NewBeeMallException.fail(ServiceResultEnum.ORDER_PRICE_ERROR.getResult());
+                    com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.ORDER_PRICE_ERROR.getResult());
                 }
-                NewBeeMallException.fail(ServiceResultEnum.DB_ERROR.getResult());
+                com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.DB_ERROR.getResult());
             }
-            NewBeeMallException.fail(ServiceResultEnum.DB_ERROR.getResult());
+            com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.DB_ERROR.getResult());
         }
-        NewBeeMallException.fail(ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult());
-        return ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult();
+        com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult());
+        return com.wangmeng.mall.common.ServiceResultEnum.SHOPPING_ITEM_ERROR.getResult();
     }
 }

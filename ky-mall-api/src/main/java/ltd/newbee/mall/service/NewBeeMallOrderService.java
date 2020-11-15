@@ -12,8 +12,8 @@ import ltd.newbee.mall.api.vo.NewBeeMallOrderDetailVO;
 import ltd.newbee.mall.api.vo.NewBeeMallShoppingCartItemVO;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.entity.MallUserAddress;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.PageResult;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageResult;
 
 import java.util.List;
 

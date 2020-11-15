@@ -1,16 +1,16 @@
 package ltd.newbee.mall.controller.admin;
 
-import ltd.newbee.mall.common.Constants;
-import ltd.newbee.mall.common.NewBeeMallCategoryLevelEnum;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.NewBeeMallCategoryLevelEnum;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.GoodsCategory;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
-import ltd.newbee.mall.oss.QiniuCloudStorageService;
+import com.wangmeng.mall.oss.QiniuCloudStorageService;
 import ltd.newbee.mall.service.NewBeeMallCategoryService;
 import ltd.newbee.mall.service.NewBeeMallGoodsService;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
@@ -28,7 +28,7 @@ import java.util.Objects;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  */
 @Controller
 @RequestMapping("/admin")

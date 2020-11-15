@@ -9,12 +9,12 @@
 package ltd.newbee.mall.service.impl;
 
 import ltd.newbee.mall.api.vo.NewBeeMallUserAddressVO;
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.dao.MallUserAddressMapper;
 import ltd.newbee.mall.entity.MallUserAddress;
 import ltd.newbee.mall.service.NewBeeMallUserAddressService;
-import ltd.newbee.mall.util.BeanUtil;
+import com.wangmeng.mall.util.BeanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

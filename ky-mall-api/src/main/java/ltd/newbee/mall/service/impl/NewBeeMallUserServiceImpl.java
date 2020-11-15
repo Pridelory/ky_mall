@@ -9,17 +9,17 @@
 package ltd.newbee.mall.service.impl;
 
 import ltd.newbee.mall.api.param.MallUserUpdateParam;
-import ltd.newbee.mall.common.Constants;
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.dao.MallUserMapper;
 import ltd.newbee.mall.dao.NewBeeMallUserTokenMapper;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.entity.MallUserToken;
 import ltd.newbee.mall.service.NewBeeMallUserService;
-import ltd.newbee.mall.util.MD5Util;
-import ltd.newbee.mall.util.NumberUtil;
-import ltd.newbee.mall.util.SystemUtil;
+import com.wangmeng.mall.util.MD5Util;
+import com.wangmeng.mall.util.NumberUtil;
+import com.wangmeng.mall.util.SystemUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

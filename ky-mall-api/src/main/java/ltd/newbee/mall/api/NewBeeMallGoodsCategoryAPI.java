@@ -10,12 +10,12 @@ package ltd.newbee.mall.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.api.vo.NewBeeMallIndexCategoryVO;
 import ltd.newbee.mall.service.NewBeeMallCategoryService;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

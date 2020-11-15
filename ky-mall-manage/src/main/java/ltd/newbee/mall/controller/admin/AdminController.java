@@ -1,6 +1,6 @@
 package ltd.newbee.mall.controller.admin;
 
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.entity.AdminUser;
 import ltd.newbee.mall.service.AdminUserService;
 import org.springframework.stereotype.Controller;

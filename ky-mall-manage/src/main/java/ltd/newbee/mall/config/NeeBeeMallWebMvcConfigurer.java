@@ -1,6 +1,6 @@
 package ltd.newbee.mall.config;
 
-import ltd.newbee.mall.common.Constants;
+import com.wangmeng.mall.common.Constants;
 import ltd.newbee.mall.interceptor.AdminLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -12,7 +12,7 @@ package ltd.newbee.mall.common;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  * @apiNote 订单状态:0.无 1.支付宝 2.微信支付
  */
 public enum PayTypeEnum {
@@ -31,8 +31,8 @@ public enum PayTypeEnum {
         this.name = name;
     }
 
-    public static PayTypeEnum getPayTypeEnumByType(int payType) {
-        for (PayTypeEnum payTypeEnum : PayTypeEnum.values()) {
+    public static com.wangmeng.mall.common.PayTypeEnum getPayTypeEnumByType(int payType) {
+        for (com.wangmeng.mall.common.PayTypeEnum payTypeEnum : com.wangmeng.mall.common.PayTypeEnum.values()) {
             if (payTypeEnum.getPayType() == payType) {
                 return payTypeEnum;
             }

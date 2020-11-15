@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  */
 @Component
 public class AdminLoginInterceptor implements HandlerInterceptor {

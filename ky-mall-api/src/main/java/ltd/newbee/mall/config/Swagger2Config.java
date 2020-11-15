@@ -43,7 +43,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .ignoredParameterTypes(MallUser.class)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("ltd.newbee.mall.api"))// 修改为自己的 controller 包路径
+                .apis(RequestHandlerSelectors.basePackage("ltd.wangmeng.mall.api"))// 修改为自己的 controller 包路径
                 .paths(PathSelectors.any())
                 .build()
                 .globalOperationParameters(swaggerParams);

@@ -9,7 +9,7 @@
 package ltd.newbee.mall.dao;
 
 import ltd.newbee.mall.entity.GoodsCategory;
-import ltd.newbee.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageQueryUtil;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

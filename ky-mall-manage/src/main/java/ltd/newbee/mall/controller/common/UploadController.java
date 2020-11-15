@@ -1,8 +1,8 @@
 package ltd.newbee.mall.controller.common;
 
-import ltd.newbee.mall.oss.QiniuCloudStorageService;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.oss.QiniuCloudStorageService;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +22,7 @@ import java.util.Random;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  */
 @Controller
 @RequestMapping("/admin")

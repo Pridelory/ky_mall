@@ -12,7 +12,7 @@ package ltd.newbee.mall.common;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  * @apiNote 订单状态:0.待支付 1.已支付 2.配货完成 3:出库成功 4.交易成功 -1.手动关闭 -2.超时关闭 -3.商家关闭
  */
 public enum NewBeeMallOrderStatusEnum {
@@ -36,8 +36,8 @@ public enum NewBeeMallOrderStatusEnum {
         this.name = name;
     }
 
-    public static NewBeeMallOrderStatusEnum getNewBeeMallOrderStatusEnumByStatus(int orderStatus) {
-        for (NewBeeMallOrderStatusEnum newBeeMallOrderStatusEnum : NewBeeMallOrderStatusEnum.values()) {
+    public static com.wangmeng.mall.common.NewBeeMallOrderStatusEnum getNewBeeMallOrderStatusEnumByStatus(int orderStatus) {
+        for (com.wangmeng.mall.common.NewBeeMallOrderStatusEnum newBeeMallOrderStatusEnum : com.wangmeng.mall.common.NewBeeMallOrderStatusEnum.values()) {
             if (newBeeMallOrderStatusEnum.getOrderStatus() == orderStatus) {
                 return newBeeMallOrderStatusEnum;
             }

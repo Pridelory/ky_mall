@@ -8,17 +8,17 @@
  */
 package ltd.newbee.mall.api;
 
+import com.wangmeng.mall.util.*;
 import io.swagger.annotations.*;
 import ltd.newbee.mall.api.vo.NewBeeMallSearchGoodsVO;
-import ltd.newbee.mall.common.Constants;
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.config.annotation.TokenToMallUser;
 import ltd.newbee.mall.api.vo.NewBeeMallGoodsDetailVO;
 import ltd.newbee.mall.entity.MallUser;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
 import ltd.newbee.mall.service.NewBeeMallGoodsService;
-import ltd.newbee.mall.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;

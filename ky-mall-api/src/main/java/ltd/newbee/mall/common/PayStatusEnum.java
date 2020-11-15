@@ -12,7 +12,7 @@ package ltd.newbee.mall.common;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/newbee-ltd
+ * @link https://github.com/wangmeng-ltd
  * @apiNote 订单状态:0.支付中 1.支付成功 -1.支付失败
  */
 public enum PayStatusEnum {
@@ -30,8 +30,8 @@ public enum PayStatusEnum {
         this.name = name;
     }
 
-    public static PayStatusEnum getPayStatusEnumByStatus(int payStatus) {
-        for (PayStatusEnum payStatusEnum : PayStatusEnum.values()) {
+    public static com.wangmeng.mall.common.PayStatusEnum getPayStatusEnumByStatus(int payStatus) {
+        for (com.wangmeng.mall.common.PayStatusEnum payStatusEnum : com.wangmeng.mall.common.PayStatusEnum.values()) {
             if (payStatusEnum.getPayStatus() == payStatus) {
                 return payStatusEnum;
             }

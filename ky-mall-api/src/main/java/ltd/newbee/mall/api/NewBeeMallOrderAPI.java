@@ -1,11 +1,3 @@
-/**
- * 严肃声明：
- * 开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
- * 本软件已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
- * 可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
- * Copyright (c) 2020 十三 all rights reserved.
- * 版权所有，侵权必究！
- */
 package ltd.newbee.mall.api;
 
 import io.swagger.annotations.Api;
@@ -14,9 +6,9 @@ import io.swagger.annotations.ApiParam;
 import ltd.newbee.mall.api.param.SaveOrderParam;
 import ltd.newbee.mall.api.vo.NewBeeMallOrderDetailVO;
 import ltd.newbee.mall.api.vo.NewBeeMallOrderListVO;
-import ltd.newbee.mall.common.Constants;
-import ltd.newbee.mall.common.NewBeeMallException;
-import ltd.newbee.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.NewBeeMallException;
+import com.wangmeng.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.config.annotation.TokenToMallUser;
 import ltd.newbee.mall.api.vo.NewBeeMallShoppingCartItemVO;
 import ltd.newbee.mall.entity.MallUser;
@@ -24,10 +16,10 @@ import ltd.newbee.mall.entity.MallUserAddress;
 import ltd.newbee.mall.service.NewBeeMallOrderService;
 import ltd.newbee.mall.service.NewBeeMallShoppingCartService;
 import ltd.newbee.mall.service.NewBeeMallUserAddressService;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.PageResult;
-import ltd.newbee.mall.util.Result;
-import ltd.newbee.mall.util.ResultGenerator;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageResult;
+import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.util.ResultGenerator;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 

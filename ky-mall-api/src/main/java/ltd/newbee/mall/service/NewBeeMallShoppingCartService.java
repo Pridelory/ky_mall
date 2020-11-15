@@ -12,8 +12,8 @@ import ltd.newbee.mall.api.param.SaveCartItemParam;
 import ltd.newbee.mall.api.param.UpdateCartItemParam;
 import ltd.newbee.mall.api.vo.NewBeeMallShoppingCartItemVO;
 import ltd.newbee.mall.entity.NewBeeMallShoppingCartItem;
-import ltd.newbee.mall.util.PageQueryUtil;
-import ltd.newbee.mall.util.PageResult;
+import com.wangmeng.mall.util.PageQueryUtil;
+import com.wangmeng.mall.util.PageResult;
 
 import java.util.List;
 

@@ -23,7 +23,7 @@ public class NewBeeMallException extends RuntimeException {
      * @param message
      */
     public static void fail(String message) {
-        throw new NewBeeMallException(message);
+        throw new com.wangmeng.mall.common.NewBeeMallException(message);
     }
 
 }
