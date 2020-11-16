@@ -8,8 +8,8 @@ Copyright (c) 2020 十三 all rights reserved.
 版权所有，侵权必究！
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallOrderAddressMapper">
-  <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.NewBeeMallOrderAddress">
+<mapper namespace="com.wangmeng.mall.dao.NewBeeMallOrderAddressMapper">
+  <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.NewBeeMallOrderAddress">
     <id column="order_id" jdbcType="BIGINT" property="orderId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
@@ -31,7 +31,7 @@ Copyright (c) 2020 十三 all rights reserved.
     delete from tb_newbee_mall_order_address
     where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderAddress">
+  <insert id="insert" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderAddress">
     insert into tb_newbee_mall_order_address (order_id, user_name, user_phone, 
       province_name, city_name, region_name, 
       detail_address)
@@ -39,7 +39,7 @@ Copyright (c) 2020 十三 all rights reserved.
       #{provinceName,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, #{regionName,jdbcType=VARCHAR}, 
       #{detailAddress,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderAddress">
+  <insert id="insertSelective" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderAddress">
     insert into tb_newbee_mall_order_address
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="orderId != null">
@@ -88,7 +88,7 @@ Copyright (c) 2020 十三 all rights reserved.
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderAddress">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderAddress">
     update tb_newbee_mall_order_address
     <set>
       <if test="userName != null">
@@ -112,7 +112,7 @@ Copyright (c) 2020 十三 all rights reserved.
     </set>
     where order_id = #{orderId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderAddress">
+  <update id="updateByPrimaryKey" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderAddress">
     update tb_newbee_mall_order_address
     set user_name = #{userName,jdbcType=VARCHAR},
       user_phone = #{userPhone,jdbcType=VARCHAR},

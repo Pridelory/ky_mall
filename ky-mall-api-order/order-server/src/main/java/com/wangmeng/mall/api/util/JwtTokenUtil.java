@@ -1,7 +1,7 @@
 package com.wangmeng.mall.api.util;
 
-import com.mtcarpenter.mall.common.api.ResultCode;
-import com.mtcarpenter.mall.common.exception.ApiException;
+import com.wangmeng.mall.common.api.ResultCode;
+import com.wangmeng.mall.common.exception.ApiException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;

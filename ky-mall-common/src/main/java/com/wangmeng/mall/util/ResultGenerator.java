@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/wangmeng-ltd
+ * @link https://github.com/wangmeng-com
  */
 public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";

@@ -8,8 +8,8 @@ Copyright (c) 2020 十三 all rights reserved.
 版权所有，侵权必究！
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallOrderItemMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+<mapper namespace="com.wangmeng.mall.dao.NewBeeMallOrderItemMapper">
+    <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.NewBeeMallOrderItem">
         <id column="order_item_id" jdbcType="BIGINT" property="orderItemId"/>
         <result column="order_id" jdbcType="BIGINT" property="orderId"/>
         <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
@@ -49,7 +49,7 @@ Copyright (c) 2020 十三 all rights reserved.
     delete from tb_newbee_mall_order_item
     where order_item_id = #{orderItemId,jdbcType=BIGINT}
   </delete>
-    <insert id="insertBatch" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+    <insert id="insertBatch" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderItem">
         insert into tb_newbee_mall_order_item (order_id, goods_id,
         goods_name, goods_cover_img, selling_price,
         goods_count)
@@ -61,7 +61,7 @@ Copyright (c) 2020 十三 all rights reserved.
             #{orderItem.goodsCount,jdbcType=INTEGER})
         </foreach>
     </insert>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+    <insert id="insert" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderItem">
     insert into tb_newbee_mall_order_item (order_item_id, order_id, goods_id,
       goods_name, goods_cover_img, selling_price,
       goods_count, create_time)
@@ -69,7 +69,7 @@ Copyright (c) 2020 十三 all rights reserved.
       #{goodsName,jdbcType=VARCHAR}, #{goodsCoverImg,jdbcType=VARCHAR}, #{sellingPrice,jdbcType=INTEGER},
       #{goodsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-    <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+    <insert id="insertSelective" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderItem">
         insert into tb_newbee_mall_order_item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderItemId != null">
@@ -124,7 +124,7 @@ Copyright (c) 2020 十三 all rights reserved.
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+    <update id="updateByPrimaryKeySelective" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderItem">
         update tb_newbee_mall_order_item
         <set>
             <if test="orderId != null">
@@ -151,7 +151,7 @@ Copyright (c) 2020 十三 all rights reserved.
         </set>
         where order_item_id = #{orderItemId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.NewBeeMallOrderItem">
+    <update id="updateByPrimaryKey" parameterType="com.wangmeng.mall.entity.NewBeeMallOrderItem">
     update tb_newbee_mall_order_item
     set order_id = #{orderId,jdbcType=BIGINT},
       goods_id = #{goodsId,jdbcType=BIGINT},

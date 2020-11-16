@@ -14,7 +14,6 @@ import com.wangmeng.mall.model.NewBeeMallGoods;
 import com.wangmeng.mall.model.NewBeeMallOrder;
 import com.wangmeng.mall.model.NewBeeMallOrderAddress;
 import com.wangmeng.mall.model.NewBeeMallOrderItem;
-import ltd.newbee.mall.common.*;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
 import com.wangmeng.mall.util.PageQueryUtil;

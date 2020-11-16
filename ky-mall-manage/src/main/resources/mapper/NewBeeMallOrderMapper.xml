@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallOrderMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.NewBeeMallOrder">
+<mapper namespace="com.wangmeng.mall.dao.NewBeeMallOrderMapper">
+    <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.NewBeeMallOrder">
         <id column="order_id" jdbcType="BIGINT" property="orderId"/>
         <result column="order_no" jdbcType="VARCHAR" property="orderNo"/>
         <result column="user_id" jdbcType="BIGINT" property="userId"/>
@@ -103,7 +103,7 @@
     update tb_newbee_mall_order set is_deleted=1
     where order_id = #{orderId,jdbcType=BIGINT} and is_deleted=0
   </update>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.NewBeeMallOrder">
+    <insert id="insert" parameterType="com.wangmeng.mall.entity.NewBeeMallOrder">
     insert into tb_newbee_mall_order (order_id, order_no, user_id, 
       total_price, pay_status, pay_type, 
       pay_time, order_status, extra_info, 
@@ -116,7 +116,7 @@
       )
   </insert>
     <insert id="insertSelective" useGeneratedKeys="true" keyProperty="orderId"
-            parameterType="ltd.newbee.mall.entity.NewBeeMallOrder">
+            parameterType="com.wangmeng.mall.entity.NewBeeMallOrder">
         insert into tb_newbee_mall_order
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderId != null">
@@ -219,7 +219,7 @@
                  open="(" separator="," close=")">#{item}
         </foreach>
     </update>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.NewBeeMallOrder">
+    <update id="updateByPrimaryKeySelective" parameterType="com.wangmeng.mall.entity.NewBeeMallOrder">
         update tb_newbee_mall_order
         <set>
             <if test="orderNo != null">
@@ -258,7 +258,7 @@
         </set>
         where order_id = #{orderId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.NewBeeMallOrder">
+    <update id="updateByPrimaryKey" parameterType="com.wangmeng.mall.entity.NewBeeMallOrder">
     update tb_newbee_mall_order
     set order_no = #{orderNo,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=BIGINT},

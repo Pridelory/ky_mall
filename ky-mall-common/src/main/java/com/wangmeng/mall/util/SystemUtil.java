@@ -7,7 +7,7 @@ import java.security.MessageDigest;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/wangmeng-ltd
+ * @link https://github.com/wangmeng-com
  */
 public class SystemUtil {
 

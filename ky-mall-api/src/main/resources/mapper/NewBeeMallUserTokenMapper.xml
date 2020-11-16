@@ -8,8 +8,8 @@ Copyright (c) 2020 十三 all rights reserved.
 版权所有，侵权必究！
 -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallUserTokenMapper">
-  <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.MallUserToken">
+<mapper namespace="com.wangmeng.mall.dao.NewBeeMallUserTokenMapper">
+  <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.MallUserToken">
     <id column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="token" jdbcType="VARCHAR" property="token" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -34,13 +34,13 @@ Copyright (c) 2020 十三 all rights reserved.
     delete from tb_newbee_mall_user_token
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="ltd.newbee.mall.entity.MallUserToken">
+  <insert id="insert" parameterType="com.wangmeng.mall.entity.MallUserToken">
     insert into tb_newbee_mall_user_token (user_id, token, update_time, 
       expire_time)
     values (#{userId,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{expireTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.MallUserToken">
+  <insert id="insertSelective" parameterType="com.wangmeng.mall.entity.MallUserToken">
     insert into tb_newbee_mall_user_token
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -71,7 +71,7 @@ Copyright (c) 2020 十三 all rights reserved.
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.MallUserToken">
+  <update id="updateByPrimaryKeySelective" parameterType="com.wangmeng.mall.entity.MallUserToken">
     update tb_newbee_mall_user_token
     <set>
       <if test="token != null">
@@ -86,7 +86,7 @@ Copyright (c) 2020 十三 all rights reserved.
     </set>
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.MallUserToken">
+  <update id="updateByPrimaryKey" parameterType="com.wangmeng.mall.entity.MallUserToken">
     update tb_newbee_mall_user_token
     set token = #{token,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP},

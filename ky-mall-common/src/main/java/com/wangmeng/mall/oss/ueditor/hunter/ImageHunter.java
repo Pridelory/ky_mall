@@ -3,7 +3,6 @@ package com.wangmeng.mall.oss.ueditor.hunter;
 import com.wangmeng.mall.oss.ueditor.PathFormat;
 import com.wangmeng.mall.oss.ueditor.UeditorConfigKit;
 import com.wangmeng.mall.oss.ueditor.define.*;
-import ltd.newbee.mall.oss.ueditor.define.*;
 
 import java.net.HttpURLConnection;
 import java.net.URL;

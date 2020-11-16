@@ -1,7 +1,6 @@
 package com.wangmeng.mall.common.exception;
 
-import com.mtcarpenter.mall.common.api.IErrorCode;
-import com.wangmeng.mall.common.api.ResultCode;
+import com.wangmeng.mall.common.api.IErrorCode;
 
 /**
  * 自定义API异常
@@ -10,7 +9,7 @@ import com.wangmeng.mall.common.api.ResultCode;
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;
 
-    public ApiException(ResultCode errorCode) {
+    public ApiException(IErrorCode errorCode) {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
     }

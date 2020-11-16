@@ -1,6 +1,6 @@
 package com.wangmeng.mall.common.exception;
 
-import com.mtcarpenter.mall.common.api.CommonResult;
+import com.wangmeng.mall.common.api.CommonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

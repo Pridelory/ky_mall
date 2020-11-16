@@ -1,6 +1,6 @@
 package com.wangmeng.mall.common.exception;
 
-import com.mtcarpenter.mall.common.api.IErrorCode;
+import com.wangmeng.mall.common.api.IErrorCode;
 
 /**
  * 断言处理类，用于抛出各种API异常

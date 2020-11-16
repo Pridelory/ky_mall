@@ -5,13 +5,14 @@
     <parent>
         <artifactId>ky-mall</artifactId>
         <groupId>com.wangmeng</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ky-mall-api-member</artifactId>
-
+    <packaging>pom</packaging>
     <modules>
         <module>member-common</module>
+        <module>member-server</module>
     </modules>
 </project>

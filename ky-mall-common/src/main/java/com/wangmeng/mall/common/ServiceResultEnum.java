@@ -4,7 +4,7 @@ package com.wangmeng.mall.common;
  * @author 13
  * @qq交流群 796794009
  * @email 2449207463@qq.com
- * @link https://github.com/wangmeng-ltd
+ * @link https://github.com/wangmeng-com
  */
 public enum ServiceResultEnum {
     ERROR("error"),
@@ -18,6 +18,8 @@ public enum ServiceResultEnum {
     SAME_CATEGORY_EXIST("有同级同名的分类！"),
 
     SAME_LOGIN_NAME_EXIST("用户名已存在！"),
+
+    LOGIN_NAME_IS_NOT_PHONE("登录名不是手机"),
 
     LOGIN_NAME_NULL("请输入登录名！"),
 
