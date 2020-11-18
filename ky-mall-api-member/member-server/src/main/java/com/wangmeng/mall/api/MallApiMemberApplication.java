@@ -3,6 +3,7 @@ package com.wangmeng.mall.api;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author mtcarpenter
@@ -11,11 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication(scanBasePackages = "com.wangmeng.mall")
 @MapperScan("com.wangmeng.mall.api.dao")
-//@EnableFeignClients(basePackages = "com.mtcarpenter.mall.client")
+@EnableFeignClients(basePackages = "com.wangmeng.mall.client")
 public class MallApiMemberApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(MallApiMemberApplication.class, args);
     }
-
-
 }

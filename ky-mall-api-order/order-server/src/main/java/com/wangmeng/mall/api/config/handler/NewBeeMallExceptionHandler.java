@@ -10,7 +10,7 @@ package com.wangmeng.mall.api.config.handler;
 
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
-import com.wangmeng.mall.util.Result;
+import com.wangmeng.mall.common.api.original.Result;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;

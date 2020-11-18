@@ -1,4 +1,4 @@
-package com.wangmeng.mall.util;
+package com.wangmeng.mall.common.api.original;
 
 import org.springframework.util.StringUtils;
 

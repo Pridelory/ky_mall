@@ -19,8 +19,8 @@ import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.MallUserAddress;
 import com.wangmeng.mall.api.service.NewBeeMallUserAddressService;
 import com.wangmeng.mall.util.BeanUtil;
-import com.wangmeng.mall.util.Result;
-import com.wangmeng.mall.util.ResultGenerator;
+import com.wangmeng.mall.common.api.original.Result;
+import com.wangmeng.mall.common.api.original.ResultGenerator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

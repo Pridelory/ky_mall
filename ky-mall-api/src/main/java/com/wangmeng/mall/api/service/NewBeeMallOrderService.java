@@ -13,7 +13,7 @@ import com.wangmeng.mall.api.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.MallUserAddress;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.util.PageResult;
+import com.wangmeng.mall.common.api.original.PageResult;
 
 import java.util.List;
 

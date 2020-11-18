@@ -1,0 +1,63 @@
+server:
+  port: 8082
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    name: ky-mall-api-order
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newbee_mall_db_v2?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true
+    username: root
+    password: wangmeng
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 60000
+      pool-name: hikariCP
+      max-lifetime: 600000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  application:
+    name: ky-mall-api-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+
+mybatis:
+  mapper-locations: classpath:dao/*.xml
+
+
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-portal-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: Bearer  #JWT负载中拿到开头
+
+# 自定义redis key
+redis:
+  member: 'mall:ums:member:'
+  database: mall
+  key:
+    authCode: 'ums:authCode'
+    orderId: 'oms:orderId'
+    member: 'ums:member'
+  expire:
+    authCode: 90 # 验证码超期时间
+    common: 86400 # 24小时
+
+#类型 1：七牛  2：阿里云  3：腾讯云
+oss:
+  type: 1
+  domain: qgzz0alb0.hd-bkt.clouddn.com
+  prefix:
+  accessKey: 8nWf5ZuhQbn3jsMeEC5bgLAdwQQQUWA65iatx2wf
+  secretKey: c35_gaBpub7zi-nGOpZ8DBkG0CUzP8Clh5D06scm
+  bucketName: kaoyandang
+
+

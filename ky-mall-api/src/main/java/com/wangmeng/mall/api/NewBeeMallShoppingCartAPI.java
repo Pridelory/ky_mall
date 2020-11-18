@@ -21,9 +21,9 @@ import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.NewBeeMallShoppingCartItem;
 import com.wangmeng.mall.api.service.NewBeeMallShoppingCartService;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.util.PageResult;
-import com.wangmeng.mall.util.Result;
-import com.wangmeng.mall.util.ResultGenerator;
+import com.wangmeng.mall.common.api.original.PageResult;
+import com.wangmeng.mall.common.api.original.Result;
+import com.wangmeng.mall.common.api.original.ResultGenerator;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 

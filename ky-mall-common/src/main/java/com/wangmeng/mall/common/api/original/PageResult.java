@@ -1,4 +1,4 @@
-package com.wangmeng.mall.util;
+package com.wangmeng.mall.common.api.original;
 
 import java.io.Serializable;
 import java.util.List;

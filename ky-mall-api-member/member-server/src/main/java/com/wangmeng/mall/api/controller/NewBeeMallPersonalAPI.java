@@ -11,8 +11,8 @@ import com.wangmeng.mall.common.ServiceResultEnum;
 import com.wangmeng.mall.model.MallUser;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
-import com.wangmeng.mall.util.Result;
-import com.wangmeng.mall.util.ResultGenerator;
+import com.wangmeng.mall.common.api.original.Result;
+import com.wangmeng.mall.common.api.original.ResultGenerator;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -28,21 +28,22 @@ import javax.validation.Valid;
 @Api(value = "v1", tags = "2.新蜂商城用户操作相关接口")
 @RequestMapping("/api/v1")
 public class NewBeeMallPersonalAPI {
+    private static final Logger logger = LoggerFactory.getLogger(NewBeeMallPersonalAPI.class);
 
     @Resource
     private NewBeeMallUserService newBeeMallUserService;
 
-    private static final Logger logger = LoggerFactory.getLogger(NewBeeMallPersonalAPI.class);
-
     @PostMapping("/user/login")
     @ApiOperation(value = "登录接口", notes = "返回token")
     public Result<String> login(@RequestBody @Valid MallUserLoginParam mallUserLoginParam) {
-        if (!NumberUtil.isPhone(mallUserLoginParam.getLoginName())){
+        String username = mallUserLoginParam.getLoginName();
+        String password = mallUserLoginParam.getPasswordMd5();
+        if (!NumberUtil.isPhone(username)) {
             return ResultGenerator.genFailResult(ServiceResultEnum.LOGIN_NAME_IS_NOT_PHONE.getResult());
         }
-        String loginResult = newBeeMallUserService.login(mallUserLoginParam.getLoginName(), mallUserLoginParam.getPasswordMd5());
+        String loginResult = newBeeMallUserService.login(username, password);
 
-        logger.info("login api,loginName={},loginResult={}", mallUserLoginParam.getLoginName(), loginResult);
+        logger.info("login api,loginName={},loginResult={}", username, loginResult);
 
         //登录成功
         if (!StringUtils.isEmpty(loginResult) && loginResult.length() == Constants.TOKEN_LENGTH) {
@@ -74,7 +75,7 @@ public class NewBeeMallPersonalAPI {
     @PostMapping("/user/register")
     @ApiOperation(value = "用户注册", notes = "")
     public Result register(@RequestBody @Valid MallUserRegisterParam mallUserRegisterParam) {
-        if (!NumberUtil.isPhone(mallUserRegisterParam.getLoginName())){
+        if (!NumberUtil.isPhone(mallUserRegisterParam.getLoginName())) {
             return ResultGenerator.genFailResult(ServiceResultEnum.LOGIN_NAME_IS_NOT_PHONE.getResult());
         }
         String registerResult = newBeeMallUserService.register(mallUserRegisterParam.getLoginName(), mallUserRegisterParam.getPassword());

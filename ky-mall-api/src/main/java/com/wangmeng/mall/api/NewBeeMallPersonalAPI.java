@@ -1,8 +1,8 @@
 package com.wangmeng.mall.api;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
-import com.wangmeng.mall.util.Result;
-import com.wangmeng.mall.util.ResultGenerator;
+import com.wangmeng.mall.common.api.original.Result;
+import com.wangmeng.mall.common.api.original.ResultGenerator;
 import io.swagger.annotations.*;
 import com.wangmeng.mall.api.param.MallUserLoginParam;
 import com.wangmeng.mall.api.param.MallUserRegisterParam;

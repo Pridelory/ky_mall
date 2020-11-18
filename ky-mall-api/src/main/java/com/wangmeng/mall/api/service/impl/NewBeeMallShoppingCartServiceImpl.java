@@ -21,7 +21,7 @@ import com.wangmeng.mall.entity.NewBeeMallShoppingCartItem;
 import com.wangmeng.mall.api.service.NewBeeMallShoppingCartService;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.util.PageResult;
+import com.wangmeng.mall.common.api.original.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

@@ -5,7 +5,7 @@ import com.wangmeng.mall.api.domain.param.UpdateCartItemParam;
 import com.wangmeng.mall.api.domain.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.model.NewBeeMallShoppingCartItem;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.util.PageResult;
+import com.wangmeng.mall.common.api.original.PageResult;
 
 import java.util.List;
 

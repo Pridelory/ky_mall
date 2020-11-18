@@ -1,5 +1,8 @@
 package com.wangmeng.mall.api;
 
+import com.wangmeng.mall.common.api.original.PageResult;
+import com.wangmeng.mall.common.api.original.Result;
+import com.wangmeng.mall.common.api.original.ResultGenerator;
 import com.wangmeng.mall.util.*;
 import io.swagger.annotations.*;
 import com.wangmeng.mall.api.vo.NewBeeMallSearchGoodsVO;

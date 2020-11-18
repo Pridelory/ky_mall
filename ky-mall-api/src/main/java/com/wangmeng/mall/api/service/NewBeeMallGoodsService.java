@@ -2,7 +2,7 @@ package com.wangmeng.mall.api.service;
 
 import com.wangmeng.mall.entity.NewBeeMallGoods;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.util.PageResult;
+import com.wangmeng.mall.common.api.original.PageResult;
 
 public interface NewBeeMallGoodsService {
 
