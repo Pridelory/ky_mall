@@ -3,6 +3,7 @@ package com.wangmeng.mall.api.service.impl;
 import com.wangmeng.mall.api.dao.NewBeeMallGoodsMapper;
 import com.wangmeng.mall.api.domain.vo.NewBeeMallSearchGoodsVO;
 import com.wangmeng.mall.model.NewBeeMallGoods;
+import com.wangmeng.mall.model.NewBeeMallGoods;
 import com.wangmeng.mall.api.service.NewBeeMallGoodsService;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.PageQueryUtil;

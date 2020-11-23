@@ -12,7 +12,7 @@
     <artifactId>ky-mall-api-product</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>product-common</module>
         <module>product-server</module>
+        <module>product-common</module>
     </modules>
 </project>
