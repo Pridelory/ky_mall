@@ -29,9 +29,44 @@ spring:
             allowedHeaders: "*"
             allow-credentials: true
       routes:
-        - id: path_route_lb
+#        - id: path_route_lb
+#          uri: lb://ky-mall-api-order
+#          predicates:
+#            - Path=/echo/**
+        # 一个路由信息由一个ID，一个目的URL、一组断言和一组Filter组成
+        - id: path_route_before
           uri: lb://ky-mall-api-order
           predicates:
             - Path=/echo/**
+            - Before=2020-12-10T14:45:39.145+08:00[Asia/Shanghai]
+          filters:
+            # 请求添加名为 X-Request-Foo ，值为 Bar 的请求头
+            #  - AddRequestHeader=X-Request-Foo, Bar
+            #   请求参数 token:abc
+            - AddRequestParameter=token,abc
+            # 响应头请求参数
+            - AddResponseHeader=token,abc123
+            # 过滤器工厂名称
+#            - name: Retry
+#              args:
+#                # 默认 3
+#                retries: 3
+#                series: SERVER_ERROR
+#                statuses: INTERNAL_SERVER_ERROR,BAD_GATEWAY
+#                methods: GET,POST,DELETE,PUT
+#                exceptions:
+#                  - java.io.IOException
+#                  - java.util.concurrent.TimeoutException
+management:
+  endpoints:
+    web:
+      exposure:
+        #  可以使用 '*' 代表全部
+        include: gateway
+  endpoint:
+      health:
+        # 展示详情
+        show-details: always
+
 
 

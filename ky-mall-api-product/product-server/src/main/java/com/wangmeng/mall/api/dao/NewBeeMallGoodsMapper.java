@@ -1,10 +1,9 @@
 package com.wangmeng.mall.api.dao;
 
 import com.wangmeng.mall.api.domain.dto.StockNumDTO;
-import com.wangmeng.mall.model.NewBeeMallGoods;
 import com.wangmeng.mall.util.PageQueryUtil;
 import org.apache.ibatis.annotations.Param;
-
+import com.wangmeng.mall.model.NewBeeMallGoods;
 import java.util.List;
 
 public interface NewBeeMallGoodsMapper {

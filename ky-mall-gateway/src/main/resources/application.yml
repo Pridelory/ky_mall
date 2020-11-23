@@ -1,4 +1,3 @@
-
 jwt:
   tokenHeader: Authorization #JWT存储的请求头
   secret: mall-portal-secret #JWT加解密使用的密钥
@@ -13,3 +12,39 @@ oss:
   accessKey: 8nWf5ZuhQbn3jsMeEC5bgLAdwQQQUWA65iatx2wf
   secretKey: c35_gaBpub7zi-nGOpZ8DBkG0CUzP8Clh5D06scm
   bucketName: kaoyandang
+
+spring:
+  redis:
+    host: localhost
+    database: 1
+    port: 6379
+    password:
+    timeout: 300ms
+    key:
+      token: wangmeng
+#  boot:
+#    admin:
+#      client:
+#        # admin 服务端的地址
+#        url: http://localhost:8095
+
+# 过滤不需要认证路径条件
+secure:
+  ignored:
+    urls: #安全路径白名单
+      - /swagger-ui.html
+      - /swagger-resources/**
+      - /swagger/**
+      - /**/v2/api-docs
+      - /**/*.js
+      - /**/*.css
+      - /**/*.png
+      - /**/*.ico
+      - /webjars/springfox-swagger-ui/**
+      - /actuator/**
+      - /druid/**
+      - /admin/login
+      - /admin/register
+      - /admin/info
+      - /admin/logout
+      - /minio/upload

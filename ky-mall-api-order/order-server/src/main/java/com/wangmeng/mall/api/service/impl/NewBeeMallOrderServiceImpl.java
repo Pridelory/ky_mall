@@ -1,6 +1,5 @@
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.common.*;
 import com.wangmeng.mall.api.dao.*;
 import com.wangmeng.mall.api.domain.dto.StockNumDTO;
 import com.wangmeng.mall.api.domain.entity.MallUser;
@@ -10,6 +9,8 @@ import com.wangmeng.mall.api.domain.vo.NewBeeMallOrderItemVO;
 import com.wangmeng.mall.api.domain.vo.NewBeeMallOrderListVO;
 import com.wangmeng.mall.api.domain.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.api.service.NewBeeMallOrderService;
+import com.wangmeng.mall.common.*;
+import com.wangmeng.mall.common.api.original.PageResult;
 import com.wangmeng.mall.model.NewBeeMallGoods;
 import com.wangmeng.mall.model.NewBeeMallOrder;
 import com.wangmeng.mall.model.NewBeeMallOrderAddress;
@@ -17,7 +18,6 @@ import com.wangmeng.mall.model.NewBeeMallOrderItem;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.common.api.original.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
