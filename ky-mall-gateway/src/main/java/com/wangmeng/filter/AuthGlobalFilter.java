@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
 
 
 /**
- * @author mtcarpenter
+ * @author mtcarpentedr
  * @github https://github.com/mtcarpenter/mall-cloud-alibaba
  * @desc 微信公众号：山间木匠
  */
@@ -82,6 +82,5 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return Ordered.HIGHEST_PRECEDENCE;
     }
-
 
 }

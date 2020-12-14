@@ -1,8 +1,6 @@
 package com.wangmeng.mall.api.dao;
 
 
-import com.wangmeng.mall.model.MallUserToken;
-
 public interface NewBeeMallUserTokenMapper {
     int deleteByPrimaryKey(Long userId);
 

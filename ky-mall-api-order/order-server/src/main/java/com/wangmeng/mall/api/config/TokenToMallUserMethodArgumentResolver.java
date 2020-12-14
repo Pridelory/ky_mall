@@ -4,7 +4,6 @@ import com.wangmeng.mall.api.config.annotation.TokenToMallUser;
 import com.wangmeng.mall.api.dao.MallUserMapper;
 import com.wangmeng.mall.api.dao.NewBeeMallUserTokenMapper;
 import com.wangmeng.mall.api.domain.entity.MallUser;
-import com.wangmeng.mall.model.MallUserToken;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;

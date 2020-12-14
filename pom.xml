@@ -15,6 +15,7 @@
         <module>ky-mall-gateway</module>
         <module>ky-mall-storage</module>
         <module>ky-mall-api-product</module>
+        <module>ky-mall-security</module>
     </modules>
 
     <parent>
@@ -89,7 +90,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector.version}</version>
-            <!--<scope>runtime</scope>-->
         </dependency>
         <!--Swagger-UI API文档生产工具-->
         <dependency>
@@ -112,6 +112,12 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations.version}</version>
+        </dependency>
+        <!--Hutool Java工具包-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <!-- MyBatis 生成器 -->
         <dependency>
@@ -142,6 +148,12 @@
                 <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!--统一Guava版本防止冲突-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
