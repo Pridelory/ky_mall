@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangmeng.mall.dao.CarouselMapper">
+<mapper namespace="com.wangmeng.mall.api.dao.CarouselMapper">
     <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.Carousel">
         <id column="carousel_id" jdbcType="INTEGER" property="carouselId"/>
         <result column="carousel_url" jdbcType="VARCHAR" property="carouselUrl"/>

@@ -7,6 +7,7 @@ import com.wangmeng.mall.api.domain.entity.MallUser;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
+import com.wangmeng.mall.model.MallUserToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;

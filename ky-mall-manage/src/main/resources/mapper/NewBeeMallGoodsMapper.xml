@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wangmeng.mall.dao.NewBeeMallGoodsMapper">
+<mapper namespace="com.wangmeng.mall.api.dao.NewBeeMallGoodsMapper">
     <resultMap id="BaseResultMap" type="com.wangmeng.mall.entity.NewBeeMallGoods">
         <id column="goods_id" jdbcType="BIGINT" property="goodsId"/>
         <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>

@@ -170,6 +170,5 @@ function putDownGoods() {
                 });
             }
         }
-    )
-    ;
+    );
 }

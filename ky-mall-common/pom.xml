@@ -12,7 +12,7 @@
     <groupId>com.wangmeng</groupId>
     <artifactId>ky-mall-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <!--<packaging>pom</packaging>-->
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
