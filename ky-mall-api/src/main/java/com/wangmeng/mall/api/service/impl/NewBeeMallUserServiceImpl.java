@@ -1,6 +1,6 @@
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.param.MallUserUpdateParam;
+import com.wangmeng.mall.api.model.param.MallUserUpdateParam;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;

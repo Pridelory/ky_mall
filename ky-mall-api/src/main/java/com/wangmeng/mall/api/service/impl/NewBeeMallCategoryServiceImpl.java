@@ -8,9 +8,9 @@
  */
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.vo.NewBeeMallIndexCategoryVO;
-import com.wangmeng.mall.api.vo.SecondLevelCategoryVO;
-import com.wangmeng.mall.api.vo.ThirdLevelCategoryVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCategoryVO;
+import com.wangmeng.mall.api.model.vo.SecondLevelCategoryVO;
+import com.wangmeng.mall.api.model.vo.ThirdLevelCategoryVO;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallCategoryLevelEnum;
 import com.wangmeng.mall.common.ServiceResultEnum;

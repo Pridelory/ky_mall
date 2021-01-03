@@ -8,12 +8,12 @@
  */
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.param.SaveCartItemParam;
-import com.wangmeng.mall.api.param.UpdateCartItemParam;
+import com.wangmeng.mall.api.model.param.SaveCartItemParam;
+import com.wangmeng.mall.api.model.param.UpdateCartItemParam;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
-import com.wangmeng.mall.api.vo.NewBeeMallShoppingCartItemVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.dao.NewBeeMallGoodsMapper;
 import com.wangmeng.mall.dao.NewBeeMallShoppingCartItemMapper;
 import com.wangmeng.mall.entity.NewBeeMallGoods;

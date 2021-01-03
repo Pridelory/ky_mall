@@ -6,18 +6,22 @@
  * Copyright (c) 2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package com.wangmeng.mall.api.service;
+package com.wangmeng.mall.api.model.vo;
 
-import com.wangmeng.mall.api.model.vo.NewBeeMallIndexConfigGoodsVO;
-import java.util.List;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
-public interface NewBeeMallIndexConfigService {
+import java.io.Serializable;
 
-    /**
-     * 返回固定数量的首页配置商品对象(首页调用)
-     *
-     * @param number
-     * @return
-     */
-    List<NewBeeMallIndexConfigGoodsVO> getConfigGoodsesForIndex(int configType, int number);
+@Data
+public class NewBeeMallUserVO implements Serializable {
+
+    @ApiModelProperty("用户昵称")
+    private String nickName;
+
+    @ApiModelProperty("用户登录名")
+    private String loginName;
+
+    @ApiModelProperty("个性签名")
+    private String introduceSign;
 }

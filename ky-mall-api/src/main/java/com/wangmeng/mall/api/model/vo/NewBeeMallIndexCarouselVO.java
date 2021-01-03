@@ -6,18 +6,22 @@
  * Copyright (c) 2020 十三 all rights reserved.
  * 版权所有，侵权必究！
  */
-package com.wangmeng.mall.api.service;
+package com.wangmeng.mall.api.model.vo;
 
-import com.wangmeng.mall.api.model.vo.NewBeeMallIndexConfigGoodsVO;
-import java.util.List;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
-public interface NewBeeMallIndexConfigService {
+import java.io.Serializable;
 
-    /**
-     * 返回固定数量的首页配置商品对象(首页调用)
-     *
-     * @param number
-     * @return
-     */
-    List<NewBeeMallIndexConfigGoodsVO> getConfigGoodsesForIndex(int configType, int number);
+/**
+ * 首页轮播图VO
+ */
+@Data
+public class NewBeeMallIndexCarouselVO implements Serializable {
+
+    @ApiModelProperty("轮播图图片地址")
+    private String carouselUrl;
+
+    @ApiModelProperty("轮播图点击后的跳转路径")
+    private String redirectUrl;
 }

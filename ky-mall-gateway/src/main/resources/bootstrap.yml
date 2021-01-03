@@ -29,10 +29,6 @@ spring:
             allowedHeaders: "*"
             allow-credentials: true
       routes:
-#        - id: path_route_lb
-#          uri: lb://ky-mall-api-order
-#          predicates:
-#            - Path=/echo/**
         # 一个路由信息由一个ID，一个目的URL、一组断言和一组Filter组成
         - id: path_route_before
           uri: lb://ky-mall-api-order

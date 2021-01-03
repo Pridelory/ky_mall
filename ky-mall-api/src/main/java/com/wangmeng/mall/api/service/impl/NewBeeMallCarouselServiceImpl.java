@@ -1,6 +1,6 @@
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.vo.NewBeeMallIndexCarouselVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCarouselVO;
 import com.wangmeng.mall.dao.CarouselMapper;
 
 import com.wangmeng.mall.entity.Carousel;

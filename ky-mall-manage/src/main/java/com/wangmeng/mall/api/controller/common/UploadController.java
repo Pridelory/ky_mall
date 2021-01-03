@@ -19,10 +19,10 @@ import java.util.Date;
 import java.util.Random;
 
 /**
- * @author 13
- * @qq交流群 796794009
- * @email 2449207463@qq.com
- * @link https://github.com/wangmeng-com
+ * 七牛云上传接口
+ *
+ * @author wangmeng
+ * @since 2020-11-19
  */
 @Controller
 @RequestMapping("/admin")

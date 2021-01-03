@@ -1,6 +1,6 @@
 package com.wangmeng.mall.api.service;
 
-import com.wangmeng.mall.api.param.MallUserUpdateParam;
+import com.wangmeng.mall.api.model.param.MallUserUpdateParam;
 
 public interface NewBeeMallUserService {
 

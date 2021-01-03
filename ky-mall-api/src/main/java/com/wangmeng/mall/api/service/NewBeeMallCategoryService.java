@@ -8,7 +8,7 @@
  */
 package com.wangmeng.mall.api.service;
 
-import com.wangmeng.mall.api.vo.NewBeeMallIndexCategoryVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCategoryVO;
 import com.wangmeng.mall.entity.GoodsCategory;
 
 import java.util.List;

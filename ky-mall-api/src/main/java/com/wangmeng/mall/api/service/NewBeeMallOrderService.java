@@ -8,8 +8,8 @@
  */
 package com.wangmeng.mall.api.service;
 
-import com.wangmeng.mall.api.vo.NewBeeMallOrderDetailVO;
-import com.wangmeng.mall.api.vo.NewBeeMallShoppingCartItemVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallOrderDetailVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.MallUserAddress;
 import com.wangmeng.mall.util.PageQueryUtil;

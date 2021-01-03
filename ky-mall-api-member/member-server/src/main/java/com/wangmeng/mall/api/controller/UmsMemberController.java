@@ -16,16 +16,21 @@ import java.util.Map;
 
 /**
  * 会员登录注册管理Controller
- * Created by macro on 2018/8/3.
+ *
+ * @author wangmeng
+ * @since 2020-11-12
  */
 @RestController
 @Api(tags = "UmsMemberController", description = "会员登录注册管理")
 @RequestMapping("/sso")
 public class UmsMemberController {
+
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
+
     @Value("${jwt.tokenHead}")
     private String tokenHead;
+
     @Autowired
     private UmsMemberService memberService;
 

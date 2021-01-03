@@ -1,6 +1,6 @@
 package com.wangmeng.mall.api.service;
 
-import com.wangmeng.mall.api.vo.NewBeeMallIndexCarouselVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCarouselVO;
 import java.util.List;
 
 public interface NewBeeMallCarouselService {

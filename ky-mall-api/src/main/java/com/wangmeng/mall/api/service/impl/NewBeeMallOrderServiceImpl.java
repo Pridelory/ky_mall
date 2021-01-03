@@ -1,19 +1,10 @@
-/**
- * 严肃声明：
- * 开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
- * 本软件已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
- * 可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
- * Copyright (c) 2020 十三 all rights reserved.
- * 版权所有，侵权必究！
- */
 package com.wangmeng.mall.api.service.impl;
 
 import com.wangmeng.mall.common.Constants;
-import com.wangmeng.mall.api.vo.NewBeeMallOrderDetailVO;
-import com.wangmeng.mall.api.vo.NewBeeMallOrderItemVO;
-import com.wangmeng.mall.api.vo.NewBeeMallOrderListVO;
-import com.wangmeng.mall.api.vo.NewBeeMallShoppingCartItemVO;
-import com.wangmeng.mall.dao.*;
+import com.wangmeng.mall.api.model.vo.NewBeeMallOrderDetailVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallOrderItemVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallOrderListVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.entity.*;
 import com.wangmeng.mall.api.service.NewBeeMallOrderService;
 import com.wangmeng.mall.util.BeanUtil;
@@ -35,15 +26,15 @@ import static java.util.stream.Collectors.groupingBy;
 public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
 
     @Autowired
-    private NewBeeMallOrderMapper newBeeMallOrderMapper;
+    private com.wangmeng.mall.dao.NewBeeMallOrderMapper newBeeMallOrderMapper;
     @Autowired
-    private NewBeeMallOrderItemMapper newBeeMallOrderItemMapper;
+    private com.wangmeng.mall.dao.NewBeeMallOrderItemMapper newBeeMallOrderItemMapper;
     @Autowired
-    private NewBeeMallShoppingCartItemMapper newBeeMallShoppingCartItemMapper;
+    private com.wangmeng.mall.dao.NewBeeMallShoppingCartItemMapper newBeeMallShoppingCartItemMapper;
     @Autowired
-    private NewBeeMallGoodsMapper newBeeMallGoodsMapper;
+    private com.wangmeng.mall.dao.NewBeeMallGoodsMapper newBeeMallGoodsMapper;
     @Autowired
-    private NewBeeMallOrderAddressMapper newBeeMallOrderAddressMapper;
+    private com.wangmeng.mall.dao.NewBeeMallOrderAddressMapper newBeeMallOrderAddressMapper;
 
     @Override
     public NewBeeMallOrderDetailVO getOrderDetailByOrderNo(String orderNo, Long userId) {

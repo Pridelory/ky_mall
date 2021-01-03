@@ -8,7 +8,7 @@
  */
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.vo.NewBeeMallUserAddressVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallUserAddressVO;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
 import com.wangmeng.mall.dao.MallUserAddressMapper;

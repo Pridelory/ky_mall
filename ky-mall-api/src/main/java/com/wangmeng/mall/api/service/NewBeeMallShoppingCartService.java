@@ -8,9 +8,9 @@
  */
 package com.wangmeng.mall.api.service;
 
-import com.wangmeng.mall.api.param.SaveCartItemParam;
-import com.wangmeng.mall.api.param.UpdateCartItemParam;
-import com.wangmeng.mall.api.vo.NewBeeMallShoppingCartItemVO;
+import com.wangmeng.mall.api.model.param.SaveCartItemParam;
+import com.wangmeng.mall.api.model.param.UpdateCartItemParam;
+import com.wangmeng.mall.api.model.vo.NewBeeMallShoppingCartItemVO;
 import com.wangmeng.mall.entity.NewBeeMallShoppingCartItem;
 import com.wangmeng.mall.util.PageQueryUtil;
 import com.wangmeng.mall.common.api.original.PageResult;

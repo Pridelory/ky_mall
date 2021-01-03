@@ -8,7 +8,7 @@
  */
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.api.vo.NewBeeMallSearchGoodsVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallSearchGoodsVO;
 import com.wangmeng.mall.dao.NewBeeMallGoodsMapper;
 import com.wangmeng.mall.entity.NewBeeMallGoods;
 import com.wangmeng.mall.api.service.NewBeeMallGoodsService;
