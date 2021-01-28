@@ -1,7 +1,7 @@
-package com.wangmeng.mall.config;
+package com.wangmeng.mall.api.config;
 
 import com.wangmeng.mall.common.Constants;
-import com.wangmeng.mall.config.handler.TokenToMallUserMethodArgumentResolver;
+import com.wangmeng.mall.api.config.handler.TokenToMallUserMethodArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;

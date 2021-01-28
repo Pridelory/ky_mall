@@ -1,11 +1,11 @@
 package com.wangmeng.mall.api.service.impl;
 
+import com.wangmeng.mall.api.dao.MallUserMapper;
+import com.wangmeng.mall.api.dao.NewBeeMallUserTokenMapper;
 import com.wangmeng.mall.api.model.param.MallUserUpdateParam;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
-import com.wangmeng.mall.dao.MallUserMapper;
-import com.wangmeng.mall.dao.NewBeeMallUserTokenMapper;
 import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.MallUserToken;
 import com.wangmeng.mall.api.service.NewBeeMallUserService;
@@ -44,40 +44,45 @@ public class NewBeeMallUserServiceImpl implements NewBeeMallUserService {
 
     @Override
     public String login(String loginName, String passwordMD5) {
-        MallUser user = mallUserMapper.selectByLoginNameAndPasswd(loginName, passwordMD5);
-        if (user != null) {
-            if (user.getLockedFlag() == 1) {
-                return ServiceResultEnum.LOGIN_USER_LOCKED_ERROR.getResult();
-            }
-            //登录后即执行修改token的操作
-            String token = getNewToken(System.currentTimeMillis() + "", user.getUserId());
-            MallUserToken mallUserToken = newBeeMallUserTokenMapper.selectByPrimaryKey(user.getUserId());
-            //当前时间
-            Date now = new Date();
-            //过期时间
-            Date expireTime = new Date(now.getTime() + 2 * 24 * 3600 * 1000);//过期时间 48 小时
-            if (mallUserToken == null) {
-                mallUserToken = new MallUserToken();
-                mallUserToken.setUserId(user.getUserId());
-                mallUserToken.setToken(token);
-                mallUserToken.setUpdateTime(now);
-                mallUserToken.setExpireTime(expireTime);
-                //新增一条token数据
-                if (newBeeMallUserTokenMapper.insertSelective(mallUserToken) > 0) {
-                    //新增成功后返回
-                    return token;
-                }
-            } else {
-                mallUserToken.setToken(token);
-                mallUserToken.setUpdateTime(now);
-                mallUserToken.setExpireTime(expireTime);
-                //更新
-                if (newBeeMallUserTokenMapper.updateByPrimaryKeySelective(mallUserToken) > 0) {
-                    //修改成功后返回
-                    return token;
-                }
-            }
+        MallUser user = mallUserMapper.selectByLoginName(loginName);
+        if (user == null) {
+            return ServiceResultEnum.USER_NOT_EXIST.getResult();
+        }
 
+        if (!user.getPasswordMd5().equals(passwordMD5)) {
+            return ServiceResultEnum.USER_PASSWD_ERROR.getResult();
+        }
+
+        if (user.getLockedFlag() == 1) {
+            return ServiceResultEnum.LOGIN_USER_LOCKED_ERROR.getResult();
+        }
+        //登录后即执行修改token的操作
+        String token = getNewToken(System.currentTimeMillis() + "", user.getUserId());
+        MallUserToken mallUserToken = newBeeMallUserTokenMapper.selectByPrimaryKey(user.getUserId());
+        //当前时间
+        Date now = new Date();
+        //过期时间
+        Date expireTime = new Date(now.getTime() + 2 * 24 * 3600 * 1000);//过期时间 48 小时
+        if (mallUserToken == null) {
+            mallUserToken = new MallUserToken();
+            mallUserToken.setUserId(user.getUserId());
+            mallUserToken.setToken(token);
+            mallUserToken.setUpdateTime(now);
+            mallUserToken.setExpireTime(expireTime);
+            //新增一条token数据
+            if (newBeeMallUserTokenMapper.insertSelective(mallUserToken) > 0) {
+                //新增成功后返回
+                return token;
+            }
+        } else {
+            mallUserToken.setToken(token);
+            mallUserToken.setUpdateTime(now);
+            mallUserToken.setExpireTime(expireTime);
+            //更新
+            if (newBeeMallUserTokenMapper.updateByPrimaryKeySelective(mallUserToken) > 0) {
+                //修改成功后返回
+                return token;
+            }
         }
         return ServiceResultEnum.LOGIN_ERROR.getResult();
     }

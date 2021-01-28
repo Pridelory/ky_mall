@@ -1,20 +1,12 @@
-/**
- * 严肃声明：
- * 开源版本请务必保留此注释头信息，若删除我方将保留所有法律责任追究！
- * 本软件已申请软件著作权，受国家版权局知识产权以及国家计算机软件著作权保护！
- * 可正常分享和学习源码，不得用于违法犯罪活动，违者必究！
- * Copyright (c) 2020 十三 all rights reserved.
- * 版权所有，侵权必究！
- */
 package com.wangmeng.mall.api.controller;
 
+import com.wangmeng.mall.api.model.vo.IndexInfoVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCarouselVO;
+import com.wangmeng.mall.api.model.vo.NewBeeMallIndexConfigGoodsVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.IndexConfigTypeEnum;
-import com.wangmeng.mall.api.model.vo.IndexInfoVO;
-import com.wangmeng.mall.api.model.vo.NewBeeMallIndexCarouselVO;
-import com.wangmeng.mall.api.model.vo.NewBeeMallIndexConfigGoodsVO;
 import com.wangmeng.mall.api.service.NewBeeMallCarouselService;
 import com.wangmeng.mall.api.service.NewBeeMallIndexConfigService;
 import com.wangmeng.mall.common.api.original.Result;

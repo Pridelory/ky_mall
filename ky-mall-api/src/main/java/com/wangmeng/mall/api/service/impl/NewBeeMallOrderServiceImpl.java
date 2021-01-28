@@ -1,17 +1,21 @@
 package com.wangmeng.mall.api.service.impl;
 
-import com.wangmeng.mall.common.Constants;
+import com.alibaba.fastjson.JSONObject;
+import com.wangmeng.mall.api.dao.*;
+import com.wangmeng.mall.api.model.dto.OrderDTO;
 import com.wangmeng.mall.api.model.vo.NewBeeMallOrderDetailVO;
 import com.wangmeng.mall.api.model.vo.NewBeeMallOrderItemVO;
 import com.wangmeng.mall.api.model.vo.NewBeeMallOrderListVO;
 import com.wangmeng.mall.api.model.vo.NewBeeMallShoppingCartItemVO;
-import com.wangmeng.mall.entity.*;
 import com.wangmeng.mall.api.service.NewBeeMallOrderService;
+import com.wangmeng.mall.common.Constants;
+import com.wangmeng.mall.common.api.original.PageResult;
+import com.wangmeng.mall.entity.*;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
 import com.wangmeng.mall.util.PageQueryUtil;
-import com.wangmeng.mall.common.api.original.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
@@ -26,15 +30,18 @@ import static java.util.stream.Collectors.groupingBy;
 public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
 
     @Autowired
-    private com.wangmeng.mall.dao.NewBeeMallOrderMapper newBeeMallOrderMapper;
+    private NewBeeMallOrderMapper newBeeMallOrderMapper;
     @Autowired
-    private com.wangmeng.mall.dao.NewBeeMallOrderItemMapper newBeeMallOrderItemMapper;
+    private NewBeeMallOrderItemMapper newBeeMallOrderItemMapper;
     @Autowired
-    private com.wangmeng.mall.dao.NewBeeMallShoppingCartItemMapper newBeeMallShoppingCartItemMapper;
+    private NewBeeMallShoppingCartItemMapper newBeeMallShoppingCartItemMapper;
     @Autowired
-    private com.wangmeng.mall.dao.NewBeeMallGoodsMapper newBeeMallGoodsMapper;
+    private NewBeeMallGoodsMapper newBeeMallGoodsMapper;
     @Autowired
-    private com.wangmeng.mall.dao.NewBeeMallOrderAddressMapper newBeeMallOrderAddressMapper;
+    private NewBeeMallOrderAddressMapper newBeeMallOrderAddressMapper;
+
+    @Value("${jsapi.mchid}")
+    private Long mchid;
 
     @Override
     public NewBeeMallOrderDetailVO getOrderDetailByOrderNo(String orderNo, Long userId) {
@@ -147,7 +154,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
 
     @Override
     @Transactional
-    public String saveOrder(MallUser loginMallUser, MallUserAddress address, List<NewBeeMallShoppingCartItemVO> myShoppingCartItems) {
+    public String saveOrder(MallUser loginMallUser, List<NewBeeMallShoppingCartItemVO> myShoppingCartItems) {
         List<Long> itemIdList = myShoppingCartItems.stream().map(NewBeeMallShoppingCartItemVO::getCartItemId).collect(Collectors.toList());
         List<Long> goodsIds = myShoppingCartItems.stream().map(NewBeeMallShoppingCartItemVO::getGoodsId).collect(Collectors.toList());
         List<NewBeeMallGoods> newBeeMallGoods = newBeeMallGoodsMapper.selectByPrimaryKeys(goodsIds);
@@ -196,11 +203,14 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                 newBeeMallOrder.setTotalPrice(priceTotal);
                 String extraInfo = "";
                 newBeeMallOrder.setExtraInfo(extraInfo);
+                OrderDTO orderDTO = new OrderDTO();
+                BeanUtil.copyProperties(newBeeMallOrder, orderDTO);
+                orderDTO.setMchid(mchid);
                 //生成订单项并保存订单项纪录
                 if (newBeeMallOrderMapper.insertSelective(newBeeMallOrder) > 0) {
                     //生成订单收货地址快照，并保存至数据库
                     NewBeeMallOrderAddress newBeeMallOrderAddress = new NewBeeMallOrderAddress();
-                    BeanUtil.copyProperties(address, newBeeMallOrderAddress);
+//                    BeanUtil.copyProperties(address, newBeeMallOrderAddress);
                     newBeeMallOrderAddress.setOrderId(newBeeMallOrder.getOrderId());
                     //生成所有的订单项快照，并保存至数据库
                     List<NewBeeMallOrderItem> newBeeMallOrderItems = new ArrayList<>();
@@ -215,7 +225,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
                     //保存至数据库
                     if (newBeeMallOrderItemMapper.insertBatch(newBeeMallOrderItems) > 0 && newBeeMallOrderAddressMapper.insertSelective(newBeeMallOrderAddress) > 0) {
                         //所有操作成功后，将订单号返回，以供Controller方法跳转到订单详情
-                        return orderNo;
+                        return JSONObject.toJSONString(orderDTO) ;
                     }
                     com.wangmeng.mall.common.NewBeeMallException.fail(com.wangmeng.mall.common.ServiceResultEnum.ORDER_PRICE_ERROR.getResult());
                 }

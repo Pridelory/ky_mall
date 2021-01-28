@@ -1,5 +1,8 @@
 package com.wangmeng.mall.api.controller;
 
+import com.wangmeng.mall.api.config.PayjsConfig;
+import com.wangmeng.mall.api.model.dto.NotifyDTO;
+import com.wangmeng.mall.api.model.dto.OrderDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,32 +23,36 @@ import com.wangmeng.mall.util.PageQueryUtil;
 import com.wangmeng.mall.common.api.original.PageResult;
 import com.wangmeng.mall.common.api.original.Result;
 import com.wangmeng.mall.common.api.original.ResultGenerator;
+import jdk.nashorn.internal.scripts.JS;
+import netscape.javascript.JSObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.wangmeng.mall.util.SignUtil.sign;
 
 @RestController
 @Api(value = "v1", tags = "7.新蜂商城订单操作相关接口")
 @RequestMapping("/api/v1")
 public class NewBeeMallOrderAPI {
 
-    @Resource
+    @Autowired
     private NewBeeMallShoppingCartService newBeeMallShoppingCartService;
-    @Resource
+    @Autowired
     private NewBeeMallOrderService newBeeMallOrderService;
-    @Resource
+    @Autowired
     private NewBeeMallUserAddressService newBeeMallUserAddressService;
 
     @PostMapping("/saveOrder")
     @ApiOperation(value = "生成订单接口", notes = "传参为地址id和待结算的购物项id数组")
     public Result<String> saveOrder(@ApiParam(value = "订单参数") @RequestBody SaveOrderParam saveOrderParam, @TokenToMallUser MallUser loginMallUser) {
         int priceTotal = 0;
-        if (saveOrderParam == null || saveOrderParam.getCartItemIds() == null || saveOrderParam.getAddressId() == null) {
+        if (saveOrderParam == null || saveOrderParam.getCartItemIds() == null) {
             NewBeeMallException.fail(ServiceResultEnum.PARAM_ERROR.getResult());
         }
         if (saveOrderParam.getCartItemIds().length < 1) {
@@ -63,12 +70,12 @@ public class NewBeeMallOrderAPI {
             if (priceTotal < 1) {
                 NewBeeMallException.fail("价格异常");
             }
-            MallUserAddress address = newBeeMallUserAddressService.getMallUserAddressById(saveOrderParam.getAddressId());
-            if (!loginMallUser.getUserId().equals(address.getUserId())) {
-                return ResultGenerator.genFailResult(ServiceResultEnum.REQUEST_FORBIDEN_ERROR.getResult());
-            }
+//            MallUserAddress address = newBeeMallUserAddressService.getMallUserAddressById(saveOrderParam.getAddressId());
+//            if (!loginMallUser.getUserId().equals(address.getUserId())) {
+//                return ResultGenerator.genFailResult(ServiceResultEnum.REQUEST_FORBIDEN_ERROR.getResult());
+//            }
             //保存订单并返回订单号
-            String saveOrderResult = newBeeMallOrderService.saveOrder(loginMallUser, address, itemsForSave);
+            String saveOrderResult = newBeeMallOrderService.saveOrder(loginMallUser, itemsForSave);
             Result result = ResultGenerator.genSuccessResult();
             result.setData(saveOrderResult);
             return result;
@@ -123,7 +130,7 @@ public class NewBeeMallOrderAPI {
     }
 
     @GetMapping("/paySuccess")
-    @ApiOperation(value = "模拟支付成功回调的接口", notes = "传参为订单号和支付方式")
+    @ApiOperation(value = "支付成功回调接口", notes = "传参为订单号和支付方式")
     public Result paySuccess(@ApiParam(value = "订单号") @RequestParam("orderNo") String orderNo, @ApiParam(value = "支付方式") @RequestParam("payType") int payType) {
         String payResult = newBeeMallOrderService.paySuccess(orderNo, payType);
         if (ServiceResultEnum.SUCCESS.getResult().equals(payResult)) {
@@ -131,6 +138,36 @@ public class NewBeeMallOrderAPI {
         } else {
             return ResultGenerator.genFailResult(payResult);
         }
+    }
+
+    /**
+     * 用户支付成功回调接口
+     * @param notifyDTO
+     * @return
+     */
+    @PostMapping("/paySuccessNotify")
+    @ApiOperation(value = "支付成功回调接口", notes = "传参为订单号和支付方式")
+    public Object paySuccessNotify(NotifyDTO notifyDTO) {
+        // 验签 以防客户端篡改伪造
+        Map<String,String> notifyData = new HashMap<>();
+        notifyData.put("return_code",notifyDTO.getReturn_code());
+        notifyData.put("total_fee",notifyDTO.getTotal_fee());
+        notifyData.put("out_trade_no",notifyDTO.getOut_trade_no());
+        notifyData.put("payjs_order_id",notifyDTO.getPayjs_order_id());
+        notifyData.put("transaction_id",notifyDTO.getTransaction_id());
+        notifyData.put("time_end",notifyDTO.getTime_end());
+        notifyData.put("openid",notifyDTO.getOpenid());
+        notifyData.put("attach",notifyDTO.getAttach());
+        notifyData.put("mchid",notifyDTO.getMchid());
+        String sign = sign(notifyData, PayjsConfig.key);
+        if (sign.equals(notifyDTO.getSign())) {
+            String orderNo = notifyDTO.getOut_trade_no();
+            // 微信支付
+            int payType = 2;
+            newBeeMallOrderService.paySuccess(orderNo, payType);
+            return "success";
+        }
+        return "failure";
     }
 
 }

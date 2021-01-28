@@ -1,4 +1,4 @@
-package com.wangmeng.mall.dao;
+package com.wangmeng.mall.api.dao;
 
 import com.wangmeng.mall.entity.Carousel;
 import com.wangmeng.mall.util.PageQueryUtil;

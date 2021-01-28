@@ -11,7 +11,7 @@ public enum ServiceResultEnum {
 
     SAME_CATEGORY_EXIST("有同级同名的分类！"),
 
-    SAME_LOGIN_NAME_EXIST("用户名已存在！"),
+    SAME_LOGIN_NAME_EXIST("该用户已存在！"),
 
     LOGIN_NAME_NULL("请输入登录名！"),
 
@@ -37,13 +37,17 @@ public enum ServiceResultEnum {
 
     LOGIN_ERROR("登录失败！"),
 
+    USER_NOT_EXIST("该用户不存在，请先注册"),
+
+    USER_PASSWD_ERROR("密码错误，请重新输入"),
+
     NOT_LOGIN_ERROR("未登录！"),
 
-    TOKEN_EXPIRE_ERROR("无效认证！请重新登录！"),
+    TOKEN_EXPIRE_ERROR("请先注册并登录！"),
 
-    USER_NULL_ERROR("无效用户！请重新登录！"),
+    USER_NULL_ERROR("无效用户！请登录！"),
 
-    LOGIN_USER_LOCKED_ERROR("用户已被禁止登录！"),
+    LOGIN_USER_LOCKED_ERROR("该用户已被禁止登录！"),
 
     ORDER_NOT_EXIST_ERROR("订单不存在！"),
 

@@ -1,11 +1,11 @@
-package com.wangmeng.mall.config.handler;
+package com.wangmeng.mall.api.config.handler;
 
+import com.wangmeng.mall.api.dao.MallUserMapper;
+import com.wangmeng.mall.api.dao.NewBeeMallUserTokenMapper;
 import com.wangmeng.mall.common.Constants;
 import com.wangmeng.mall.common.NewBeeMallException;
 import com.wangmeng.mall.common.ServiceResultEnum;
 import com.wangmeng.mall.config.annotation.TokenToMallUser;
-import com.wangmeng.mall.dao.MallUserMapper;
-import com.wangmeng.mall.dao.NewBeeMallUserTokenMapper;
 import com.wangmeng.mall.entity.MallUser;
 import com.wangmeng.mall.entity.MallUserToken;
 import org.springframework.beans.factory.annotation.Autowired;
