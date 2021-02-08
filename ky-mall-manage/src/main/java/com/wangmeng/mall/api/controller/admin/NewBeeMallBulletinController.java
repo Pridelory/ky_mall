@@ -1,23 +1,17 @@
 package com.wangmeng.mall.api.controller.admin;
 
 import com.wangmeng.mall.api.service.NewBeeMallBulletinService;
-import com.wangmeng.mall.common.NewBeeMallCategoryLevelEnum;
 import com.wangmeng.mall.common.ServiceResultEnum;
 import com.wangmeng.mall.common.api.original.Result;
 import com.wangmeng.mall.common.api.original.ResultGenerator;
-import com.wangmeng.mall.entity.GoodsCategory;
 import com.wangmeng.mall.entity.NewBeeMallBulletin;
-import com.wangmeng.mall.entity.NewBeeMallGoods;
 import com.wangmeng.mall.util.PageQueryUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
