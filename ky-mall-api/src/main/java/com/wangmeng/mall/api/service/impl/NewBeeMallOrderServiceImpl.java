@@ -132,6 +132,7 @@ public class NewBeeMallOrderServiceImpl implements NewBeeMallOrderService {
     }
 
     @Override
+    @Transactional
     public String paySuccess(String orderNo, int payType) {
         NewBeeMallOrder newBeeMallOrder = newBeeMallOrderMapper.selectByOrderNo(orderNo);
         if (newBeeMallOrder != null) {

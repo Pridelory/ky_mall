@@ -3,6 +3,8 @@ package com.wangmeng.mall.api.controller;
 import com.wangmeng.mall.api.config.PayjsConfig;
 import com.wangmeng.mall.api.model.dto.NotifyDTO;
 import com.wangmeng.mall.api.model.dto.OrderDTO;
+import com.wangmeng.mall.api.model.entity.Sms;
+import com.wangmeng.mall.api.service.SmsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -47,6 +49,8 @@ public class NewBeeMallOrderAPI {
     private NewBeeMallOrderService newBeeMallOrderService;
     @Autowired
     private NewBeeMallUserAddressService newBeeMallUserAddressService;
+    @Autowired
+    private SmsService smsService;
 
     @PostMapping("/saveOrder")
     @ApiOperation(value = "生成订单接口", notes = "传参为地址id和待结算的购物项id数组")
@@ -165,6 +169,9 @@ public class NewBeeMallOrderAPI {
             // 微信支付
             int payType = 2;
             newBeeMallOrderService.paySuccess(orderNo, payType);
+            Sms sms = new Sms();
+            sms.setOrderNumber(orderNo);
+            smsService.sendSmsToCustomerService(sms);
             return "success";
         }
         return "failure";

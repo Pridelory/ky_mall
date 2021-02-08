@@ -1,11 +1,3 @@
-/**
- *
- *
- *
- *
- *  (c)  reserved.
- *
- */
 package com.wangmeng.mall.api.service;
 
 import com.wangmeng.mall.entity.NewBeeMallGoods;

@@ -1,4 +1,6 @@
 package com.wangmeng.mall.api.controller;
+import com.wangmeng.mall.api.model.entity.Sms;
+import com.wangmeng.mall.api.service.SmsService;
 import com.wangmeng.mall.util.BeanUtil;
 import com.wangmeng.mall.util.NumberUtil;
 import com.wangmeng.mall.common.api.original.Result;
@@ -29,6 +31,10 @@ public class NewBeeMallPersonalAPI {
     @Resource
     private NewBeeMallUserService newBeeMallUserService;
 
+    @Resource
+    private SmsService smsService;
+
+
     private static final Logger logger = LoggerFactory.getLogger(NewBeeMallPersonalAPI.class);
 
     @PostMapping("/user/login")
@@ -56,9 +62,10 @@ public class NewBeeMallPersonalAPI {
     @ApiOperation(value = "登出接口", notes = "清除token")
     public Result<String> logout(@TokenToMallUser MallUser loginMallUser) {
         Boolean logoutResult = newBeeMallUserService.logout(loginMallUser.getUserId());
-
         logger.info("logout api,loginMallUser={}", loginMallUser.getUserId());
-
+        Sms sms = new Sms();
+        sms.setOrderNumber("asdfsdf");
+        smsService.sendSmsToCustomerService(sms);
         //登出成功
         if (logoutResult) {
             return ResultGenerator.genSuccessResult();
